@@ -1,0 +1,27 @@
+name: Build MyRental Service
+
+on:
+    push:
+        paths:
+            - "backend/myrental-service/**"
+            - ".github/workflows/myrental-service.yml"
+    pull_request:
+        branches:
+            - main
+        paths:
+            - "backend/myrental-service/**"
+            - ".github/workflows/myrental-service.yml"
+jobs:
+    build:
+        runs-on: ubuntu-latest
+
+        steps:
+        -   name: Checkout repository
+            uses: actions/checkout@v4
+
+        -   name: Set up Docker Buildx
+            uses: docker/setup-buildx-action@v3
+
+        -   name: Build MyRental Service Docker Image
+            run: |
+                    docker build --target production -t myrental-service:latest ./backend/myrental-service
