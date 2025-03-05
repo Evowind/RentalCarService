@@ -3,13 +3,13 @@ name: Build MyRental Service
 on:
     push:
         paths:
-            - "backend/myrental-service/**"
+            - "rental-service/**"
             - ".github/workflows/myrental-service.yml"
     pull_request:
         branches:
             - main
         paths:
-            - "backend/myrental-service/**"
+            - "rental-service/**"
             - ".github/workflows/myrental-service.yml"
 jobs:
     build:
