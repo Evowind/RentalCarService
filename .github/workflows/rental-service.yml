@@ -1,27 +1,25 @@
-name: Build MyRental Service
-
+name: CI
 on:
-    push:
-        paths:
-            - "rental-service/**"
-            - ".github/workflows/rental-service.yml"
-    pull_request:
-        branches:
-            - main
-        paths:
-            - "rental-service/**"
-            - ".github/workflows/rental-service.yml"
+  - pull_request
 jobs:
-    build:
-        runs-on: ubuntu-latest
-
-        steps:
-        -   name: Checkout repository
-            uses: actions/checkout@v4
-
-        -   name: Set up Docker Buildx
-            uses: docker/setup-buildx-action@v3
-
-        -   name: Build MyRental Service Docker Image
-            run: |
-              docker build -t myrental-service:latest ./rental-service
+  job1:
+    runs-on: ubuntu-latest
+    name: build
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up JDK 17
+        uses: actions/setup-java@v3
+        with:
+          java-version: '17'
+          distribution: 'adopt'
+      - name: Build and test
+        working-directory: rent
+        run: |
+          export SHELL=/bin/bash
+          ./gradlew build
+      - name: Docker images
+        working-directory: rent
+        run: |
+          export SHELL=/bin/bash
+          docker build -t rent .
+          docker images
