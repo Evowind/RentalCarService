@@ -24,4 +24,4 @@ jobs:
 
         -   name: Build MyRental Service Docker Image
             run: |
-                    docker build --target production -t myrental-service:latest ./rental-service
+              docker build -t myrental-service:latest ./rental-service
