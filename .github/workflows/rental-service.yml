@@ -4,13 +4,13 @@ on:
     push:
         paths:
             - "rental-service/**"
-            - ".github/workflows/myrental-service.yml"
+            - ".github/workflows/rental-service.yml"
     pull_request:
         branches:
             - main
         paths:
             - "rental-service/**"
-            - ".github/workflows/myrental-service.yml"
+            - ".github/workflows/rental-service.yml"
 jobs:
     build:
         runs-on: ubuntu-latest
@@ -24,4 +24,4 @@ jobs:
 
         -   name: Build MyRental Service Docker Image
             run: |
-                    docker build --target production -t myrental-service:latest ./backend/myrental-service
+                    docker build --target production -t myrental-service:latest ./rental-service
