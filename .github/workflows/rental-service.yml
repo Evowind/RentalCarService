@@ -1,25 +1,41 @@
-name: CI
+name: Build MyRental Service
+
 on:
-  - pull_request
+  push:
+    paths:
+      - "rental-service/**"
+      - ".github/workflows/rental-service.yml"
+  pull_request:
+    branches:
+      - main
+    paths:
+      - "rental-service/**"
+      - ".github/workflows/rental-service.yml"
+
 jobs:
-  job1:
+  build:
     runs-on: ubuntu-latest
-    name: build
+
     steps:
-      - uses: actions/checkout@v2
-      - name: Set up JDK 17
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up JDK
         uses: actions/setup-java@v3
         with:
+          distribution: 'temurin'
           java-version: '17'
-          distribution: 'adopt'
-      - name: Build and test
-        working-directory: rent
-        run: |
-          export SHELL=/bin/bash
-          ./gradlew build
-      - name: Docker images
-        working-directory: rent
-        run: |
-          export SHELL=/bin/bash
-          docker build -t rent .
-          docker images
+
+      - name: Grant execute permission for gradlew
+        run: chmod +x ./rental-service/gradlew
+
+      - name: Build the project with Gradle
+        working-directory: ./rental-service
+        run: ./gradlew build
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Build MyRental Service Docker Image
+        working-directory: ./rental-service
+        run: docker build -t myrental-service:latest .
