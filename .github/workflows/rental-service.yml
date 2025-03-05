@@ -38,4 +38,4 @@ jobs:
 
       - name: Build MyRental Service Docker Image
         working-directory: ./rental-service
-        run: docker build -t myrental-service:latest .
+        run: docker build -t rental-service:latest .

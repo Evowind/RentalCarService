@@ -25,7 +25,6 @@ build/
 *.ipr
 *.iws
 .vscode/
-.gradle/
 
 # Python
 __pycache__/
