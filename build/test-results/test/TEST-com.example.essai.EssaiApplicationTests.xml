@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.example.essai.EssaiApplicationTests" tests="1" skipped="0" failures="0" errors="0" timestamp="2025-03-05T13:01:50" hostname="pop-os" time="0.585">
+  <properties/>
+  <testcase name="contextLoads()" classname="com.example.essai.EssaiApplicationTests" time="0.585"/>
+  <system-out><![CDATA[14:01:49.281 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [com.example.essai.EssaiApplicationTests]: EssaiApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+14:01:49.393 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration com.example.essai.EssaiApplication for test class com.example.essai.EssaiApplicationTests
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v3.3.4)
+
+2025-03-05T14:01:49.772+01:00  INFO 12756 --- [essai] [    Test worker] c.example.essai.EssaiApplicationTests    : Starting EssaiApplicationTests using Java 17.0.14 with PID 12756 (started by zack in /home/zack/Cours/ProgrammationDistribuer/TP)
+2025-03-05T14:01:49.774+01:00  INFO 12756 --- [essai] [    Test worker] c.example.essai.EssaiApplicationTests    : No active profile set, falling back to 1 default profile: "default"
+2025-03-05T14:01:50.832+01:00  INFO 12756 --- [essai] [    Test worker] c.example.essai.EssaiApplicationTests    : Started EssaiApplicationTests in 1.3 seconds (process running for 2.392)
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
